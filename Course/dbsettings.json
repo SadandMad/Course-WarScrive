@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=Warhammer;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}

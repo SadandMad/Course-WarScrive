@@ -1,0 +1,9 @@
+﻿<h1>Все юниты:</h1>
+<h2>@Model.currCategory</h2>
+<div class="container mt-5 mb-2">
+@{
+    foreach (Unit unit in Model.allUnits) {
+        @Html.Partial("AllUnits", unit)
+    }
+}
+</div>

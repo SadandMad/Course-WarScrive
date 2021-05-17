@@ -1,0 +1,38 @@
+﻿@model Unit
+
+<div class="row">
+    <div class="col">
+        <h3>@Model.Name</h3>
+        <p>@Model.shortDesk</p>
+        <p>Стоимость: @Model.price.ToString()</p>
+
+        <p>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target=@("#staticBackdrop"+@Model.Name)>
+                Подробнее
+            </button>
+        </p>
+
+        <div class="modal fade" id=@("staticBackdrop"+@Model.Name) data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">@Model.Name</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Описание: @Model.longDesk
+                    </div>
+                    <div class="modal-footer">
+                        <p><a class="btn btn-warning" asp-controller="Roster" asp-action="addToRoster" asp-route-id="@Model.Id">Добавить в ростер</a></p>
+                        <p><button type="button" class="btn btn-danger" data-bs-dismiss="modal">Закрыть</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p><a class="btn btn-warning" asp-controller="Roster" asp-action="addToRoster" asp-route-id="@Model.Id">Добавить в ростер</a></p>
+    </div>
+    <div class="col">
+        <img class="img-thumbnail" src="@Model.img" alt="@Model.Name" width="400" height="400" />
+    </div>
+</div>

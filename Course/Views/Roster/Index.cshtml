@@ -1,0 +1,21 @@
+﻿@{
+    uint sum = 0;
+    foreach (var el in Model.roster.listRosterItems)
+    {
+        sum += el.unit.price;
+    }
+}
+<div class="container">
+<h3 align="right">Общая стоимость: @sum</h3>
+
+    @foreach (var el in Model.roster.listRosterItems)
+    {
+        <div class="alert alert-warning mt-3">
+            <b>Юнит:</b> @el.unit.Name
+            <b>Стоимость:</b> @el.unit.price.ToString()
+            <p><a class="btn btn-danger" asp-controller="Roster" asp-action="deleteFromRoster" asp-route-id="@el.Id">Удалить</a></p>
+        </div>
+    }
+    <hr />
+    <p><a class="btn btn-danger" asp-controller="Roster" asp-action="clearRoster">Очистить</a></p>
+</div>
